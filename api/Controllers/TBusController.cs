@@ -10,6 +10,7 @@ namespace api.Controllers
 {
    
    [Authorize]
+   
     public class TBusController : BaseApiController
     {
         
@@ -45,6 +46,23 @@ namespace api.Controllers
 
             return Ok(new Response<TBusRoute>(busRoute));
         }
+
+
+        [HttpGet("bus-routes")]
+        public async Task<IActionResult> GetBusRoute()
+        {
+            var busRoutes = await _updateBusInventory.GetBusRoutes();
+            return Ok(busRoutes);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAvaiableBus()
+        {
+            return Ok(await _updateBusInventory.GetAvailableBus());
+        }
+
+
+
         
 
     }

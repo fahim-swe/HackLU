@@ -8,5 +8,6 @@ namespace api.Core.Interfaces.TransportDept
          Task<IEnumerable<TBusInventory>> GetAvailableBus();
 
          Task AddBusRoute(TBusRoute busRoute);
+         Task<IEnumerable<TBusRoute>> GetBusRoutes();
     }
 }

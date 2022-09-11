@@ -6,7 +6,6 @@ namespace api.Core.Dtos
         public string stoppagePoint{get; set;} = null!;
         public string latitude {get; set;} = null!;
         public string longitude {get; set;} = null!;
-        public string Time {get; set;} = null!;
-        
+        public string Time {get; set;} = null!; 
     }
 }

@@ -10,6 +10,5 @@ namespace api.Core.Entities.TransportDept
 
         public string stoppagePoint{get; set;} = null!;
         public string Time {get; set;} = null!;
-
     }
 }

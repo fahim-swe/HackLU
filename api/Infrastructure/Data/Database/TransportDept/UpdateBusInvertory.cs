@@ -40,5 +40,10 @@ namespace api.Infrastructure.Data.Database.TransportDept
         {
             await _busRoute.InsertOneAsync(busRoute);   
         }
+
+        public async Task<IEnumerable<TBusRoute>> GetBusRoutes()
+        {
+             return await _busRoute.Find( x => true).ToListAsync();
+        }
     }
 }
