@@ -69,7 +69,7 @@ namespace api.Controllers
             }
 
             var user = await _taccount.GetByUsername(loginDto.UserName);
-            if(user == null) return Ok(new Response<string>("Invalid User"));
+            if(user == null) return BadRequest(new Response<string>("Invalid User"));
 
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
