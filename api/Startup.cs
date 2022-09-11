@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using api.Core.Interfaces;
+using api.Core.Interfaces.ConsumerDept;
 using api.Core.Interfaces.TransportDept;
 using api.Database;
 using api.Helper;
+using api.Infrastructure.Data.Database;
 using api.Infrastructure.Data.Database.TransportDept;
 using api.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -43,6 +45,7 @@ namespace API
 
             services.AddScoped<TIAccountRepository, TAccountRepository>();
             services.AddScoped<IUpdateBusInventory, UpdateBusInvertory>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
           
 
             services.AddScoped<ITokenService, TokenService>();

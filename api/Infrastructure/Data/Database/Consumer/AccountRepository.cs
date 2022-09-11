@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 namespace api.Infrastructure.Data.Database
 {
-    public class AccountRepository : IAccountService
+    public class AccountRepository : IAccountRepository
     {
         private readonly IMongoCollection<Student> _students;
         private readonly IMongoCollection<Teacher> _teachers;
