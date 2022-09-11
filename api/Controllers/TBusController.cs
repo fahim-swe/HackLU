@@ -2,10 +2,12 @@ using api.Core.Entities.TransportDept;
 using api.Core.Interfaces.TransportDept;
 using api.Helper;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
+     [Authorize]
     public class TBusController : BaseApiController
     {
         private readonly IUpdateBusInventory _updateBusInventory;
