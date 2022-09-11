@@ -5,8 +5,8 @@ namespace api.Core.Entities.TransportDept
 {
     public class TBusInventory
     {
-       
-        public Guid Id {get; set;}
+        [MongoDB.Bson.Serialization.Attributes.BsonId, BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]     
+        public string id {get; set;}
         public string license{get; set;} = null!;
         public string capacity {get; set;}
         

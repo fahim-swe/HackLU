@@ -16,5 +16,7 @@ namespace api.Core.Entities.TransportDept
 
          [Required]
         public string phone {get; set;} = null!;
+
+        public bool isActive{get; set;}
     }
 }

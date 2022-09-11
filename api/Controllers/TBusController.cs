@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace api.Controllers
 {
    
-   [Authorize]
    
     public class TBusController : BaseApiController
     {
@@ -55,15 +54,18 @@ namespace api.Controllers
             return Ok(busRoutes);
         }
 
-        [HttpGet]
+        [HttpGet("avaiable-bus")]
         public async Task<IActionResult> GetAvaiableBus()
         {
             return Ok(await _updateBusInventory.GetAvailableBus());
         }
 
-
-
+        [HttpPost("trans-demands")]
+        public async Task<IActionResult> AddTransPortDemands(TTransDemandDto transDemandDto)
+        {
+            await _updateBusInventory.AddTransPortDemands(_mapper.Map<TTransDemand>(transDemandDto));
+            return Ok(new Response<string>("Added Transport demand"));
+        }
         
-
     }
 }

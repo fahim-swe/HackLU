@@ -9,5 +9,7 @@ namespace api.Core.Interfaces.TransportDept
 
          Task AddBusRoute(TBusRoute busRoute);
          Task<IEnumerable<TBusRoute>> GetBusRoutes();
+
+         Task AddTransPortDemands(TTransDemand transDemand);
     }
 }

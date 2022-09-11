@@ -9,5 +9,7 @@ namespace api.Database
         public string TBusInventory {get; set;} = null!;
 
         public string TBusRoute {get; set; } = null!;
+
+        public string TTransDemand {get; set;} = null!;
     }
 }
