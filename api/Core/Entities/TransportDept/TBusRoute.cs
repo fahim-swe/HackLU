@@ -8,7 +8,8 @@ namespace api.Core.Entities.TransportDept
         public string latitude {get; set;} = null!;
         public string longitude {get; set;} = null!;
 
-        public DateTime Time {get; set;} = DateTime.Now;
+        public string stoppagePoint{get; set;} = null!;
+        public string Time {get; set;} = null!;
 
     }
 }
