@@ -2,11 +2,11 @@ namespace api.Core.Dtos
 {
     public class TTransDemandDto
     {
-        public int routeNumber {get; set;}
+        public string routeNumber {get; set;}
         public string Time {get; set;} 
-        public int teachers {get; set;}
-        public int students {get; set;}
-        public int staff {get; set;}
-        public int sthers {get; set;}
+        public string teachers {get; set;}
+        public string students {get; set;}
+        public string staff {get; set;}
+        public string sthers {get; set;}
     }
 }

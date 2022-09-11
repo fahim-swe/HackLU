@@ -1,3 +1,4 @@
+using api.Core.Dtos;
 using api.Core.Entities.TransportDept;
 
 namespace api.Core.Interfaces.TransportDept
@@ -11,5 +12,7 @@ namespace api.Core.Interfaces.TransportDept
          Task<IEnumerable<TBusRoute>> GetBusRoutes();
 
          Task AddTransPortDemands(TTransDemand transDemand);
+
+         Task<PassengerDto> GetPassengerOfaRoot(string routeName, string time);
     }
 }

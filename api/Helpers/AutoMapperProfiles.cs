@@ -15,6 +15,7 @@ namespace api.Helper
             CreateMap<BusInventoryDto, TBusInventory>();
             CreateMap<TCreateRouteDto, TBusRoute>();
             CreateMap<TTransDemandDto, TTransDemand>();
+            CreateMap<TTransDemand, PassengerDto>();
         }
     }
 }

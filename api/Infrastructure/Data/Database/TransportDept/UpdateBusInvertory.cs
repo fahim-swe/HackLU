@@ -1,6 +1,8 @@
+using api.Core.Dtos;
 using api.Core.Entities.TransportDept;
 using api.Core.Interfaces.TransportDept;
 using api.Database;
+using AutoMapper;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -12,8 +14,11 @@ namespace api.Infrastructure.Data.Database.TransportDept
         private readonly IMongoCollection<TBusInventory> _busInventoryCollection;
         private readonly IMongoCollection<TBusRoute> _busRoute;
         private readonly IMongoCollection<TTransDemand> _transDemands;
-        public UpdateBusInvertory(IOptions<ApiDataBaseSetttings> userNameStoreDatabaseSettings)
+        private readonly IMapper _mapper;
+        public UpdateBusInvertory(IOptions<ApiDataBaseSetttings> userNameStoreDatabaseSettings, IMapper mapper)
         {
+
+            _mapper = mapper;
             var mongoClient = new MongoClient(
                 userNameStoreDatabaseSettings.Value.ConnectionString);
 
@@ -56,6 +61,18 @@ namespace api.Infrastructure.Data.Database.TransportDept
         public async Task AddTransPortDemands(TTransDemand transDemand)
         {
             await _transDemands.InsertOneAsync(transDemand);
+        }
+
+
+        public async Task<PassengerDto> GetPassengerOfaRoot(string routeName, string time)
+        {
+            var tTransDemand = await _transDemands.Find(x => x.routeNumber == routeName && x.Time == time).FirstOrDefaultAsync();
+            var busRoute =await _busRoute.Find(x => x.RouteNumber == routeName).FirstOrDefaultAsync();
+
+            var passengers = _mapper.Map<PassengerDto>(tTransDemand);
+            passengers.stoppagePoint = busRoute.stoppagePoint;
+
+            return passengers;
         }
     }
 }

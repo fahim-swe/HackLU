@@ -51,7 +51,7 @@ namespace api.Controllers
         public async Task<IActionResult> GetBusRoute()
         {
             var busRoutes = await _updateBusInventory.GetBusRoutes();
-            return Ok(busRoutes);
+            return Ok(new Response<IEnumerable<TBusRoute>>(busRoutes));
         }
 
         [HttpGet("avaiable-bus")]
@@ -66,6 +66,13 @@ namespace api.Controllers
             await _updateBusInventory.AddTransPortDemands(_mapper.Map<TTransDemand>(transDemandDto));
             return Ok(new Response<string>("Added Transport demand"));
         }
-        
+
+
+        [HttpGet("number-of-passengers")]
+        public async Task<IActionResult> GetNumberofPassengersofSpecificRoot([FromQuery] string routeName, string time)
+        {
+            return Ok(await _updateBusInventory.GetPassengerOfaRoot(routeName, time));
+        }
+
     }
 }
