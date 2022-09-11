@@ -213,11 +213,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Dotnet\\HackLU\\api\\api.csproj",
+      "projectUniqueName": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "F:\\Dotnet\\HackLU\\api\\api.csproj",
+      "projectPath": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj",
       "packagesPath": "C:\\Users\\okaus\\.nuget\\packages\\",
-      "outputPath": "F:\\Dotnet\\HackLU\\api\\obj\\",
+      "outputPath": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\okaus\\AppData\\Roaming\\NuGet\\NuGet.Config"
