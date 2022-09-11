@@ -11,5 +11,6 @@ namespace api.Database
         public string TBusRoute {get; set; } = null!;
 
         public string TTransDemand {get; set;} = null!;
+        public string TAddBustoRoute {get; set;} = null!;
     }
 }

@@ -14,5 +14,7 @@ namespace api.Core.Interfaces.TransportDept
          Task AddTransPortDemands(TTransDemand transDemand);
 
          Task<PassengerDto> GetPassengerOfaRoot(string routeName, string time);
+
+         Task AddBustoRoute(TAddBustoRoute addBustoRoute);
     }
 }

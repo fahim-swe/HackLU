@@ -74,5 +74,19 @@ namespace api.Controllers
             return Ok(await _updateBusInventory.GetPassengerOfaRoot(routeName, time));
         }
 
+
+        [HttpPost("add-buses-to-route")]
+        public async Task<IActionResult> AddBustoARoots( string busId, string routeNumber)
+        {
+            var addBustoRoute = new TAddBustoRoute 
+            {
+                BusId = busId,
+                RouteNumber = routeNumber
+            };
+
+            await _updateBusInventory.AddBustoRoute(addBustoRoute);
+            return Ok(new Response<string>("Added " + busId + "To " + routeNumber));
+        }
+
     }
 }

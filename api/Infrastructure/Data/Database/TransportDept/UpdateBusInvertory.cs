@@ -14,6 +14,7 @@ namespace api.Infrastructure.Data.Database.TransportDept
         private readonly IMongoCollection<TBusInventory> _busInventoryCollection;
         private readonly IMongoCollection<TBusRoute> _busRoute;
         private readonly IMongoCollection<TTransDemand> _transDemands;
+        private readonly IMongoCollection<TAddBustoRoute> _tAddBustoRoute;
         private readonly IMapper _mapper;
         public UpdateBusInvertory(IOptions<ApiDataBaseSetttings> userNameStoreDatabaseSettings, IMapper mapper)
         {
@@ -35,6 +36,11 @@ namespace api.Infrastructure.Data.Database.TransportDept
             _transDemands = mongoDatabase.GetCollection<TTransDemand>
             (
                 userNameStoreDatabaseSettings.Value.TTransDemand
+            );
+
+            _tAddBustoRoute = mongoDatabase.GetCollection<TAddBustoRoute>
+            (
+                userNameStoreDatabaseSettings.Value.TAddBustoRoute
             );
         }
         public async Task AddBusInvertory(TBusInventory busInvertory)
@@ -73,6 +79,11 @@ namespace api.Infrastructure.Data.Database.TransportDept
             passengers.stoppagePoint = busRoute.stoppagePoint;
 
             return passengers;
+        }
+
+
+        public async Task AddBustoRoute(TAddBustoRoute addBustoRoute){
+            await _tAddBustoRoute.InsertOneAsync(addBustoRoute);
         }
     }
 }
