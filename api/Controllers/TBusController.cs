@@ -68,10 +68,12 @@ namespace api.Controllers
         }
 
 
-        [HttpGet("number-of-passengers")]
-        public async Task<IActionResult> GetNumberofPassengersofSpecificRoot([FromQuery] string routeName, string time)
+        [HttpPost("number-of-passengers")]
+        public async Task<IActionResult> GetNumberofPassengersofSpecificRoot(PassengerDemandDto passengerDemandDto)
         {
-            return Ok(await _updateBusInventory.GetPassengerOfaRoot(routeName, time));
+            var data = await _updateBusInventory.GetPassengerOfaRoot(passengerDemandDto);
+            return Ok(new Response<PassengerDto>(data));
+
         }
 
 

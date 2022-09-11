@@ -70,10 +70,10 @@ namespace api.Infrastructure.Data.Database.TransportDept
         }
 
 
-        public async Task<PassengerDto> GetPassengerOfaRoot(string routeName, string time)
+        public async Task<PassengerDto> GetPassengerOfaRoot(PassengerDemandDto passengerDemandDto)
         {
-            var tTransDemand = await _transDemands.Find(x => x.routeNumber == routeName && x.Time == time).FirstOrDefaultAsync();
-            var busRoute =await _busRoute.Find(x => x.RouteNumber == routeName).FirstOrDefaultAsync();
+            var tTransDemand = await _transDemands.Find(x => x.routeNumber == passengerDemandDto.routeName && x.Time == passengerDemandDto.time).FirstOrDefaultAsync();
+            var busRoute =await _busRoute.Find(x => x.RouteNumber == passengerDemandDto.routeName).FirstOrDefaultAsync();
 
             var passengers = _mapper.Map<PassengerDto>(tTransDemand);
             passengers.stoppagePoint = busRoute.stoppagePoint;
