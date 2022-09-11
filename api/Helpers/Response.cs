@@ -12,6 +12,7 @@ namespace api.Helper
             
         }
 
+       
         public Response(T data)
         {
             Succeeded = true;
@@ -21,7 +22,7 @@ namespace api.Helper
         }
         public T Data { get; set; }
         public bool Succeeded { get; set; }
-        public string[] Errors { get; set; }
+        public string Errors { get; set; }
         public string Message { get; set; }
     }
 }
