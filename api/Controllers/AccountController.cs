@@ -31,13 +31,13 @@ namespace api.Controllers
         {
                 
                 if(!ModelState.IsValid){
-                    return BadRequest("Enter Wrong Data Format");
+                    return Ok(new Response<string>("Invalid Formate"));
                 }
 
               
 
                 if(await _taccount.IsUsernameExits(registerDTO.UserName)) 
-                    return BadRequest("Username already exits");
+                    return Ok(new Response<string>("Username already exits"));
                     
                 using var hmac = new HMACSHA512();
                 var user = new TAppUser{
@@ -65,7 +65,7 @@ namespace api.Controllers
         {
             
             if(!ModelState.IsValid){
-                    return BadRequest("Enter wrong input Formate");
+                    return Ok(new Response<string>("Invalid Input"));
             }
 
             var user = await _taccount.GetByUsername(loginDto.UserName);
