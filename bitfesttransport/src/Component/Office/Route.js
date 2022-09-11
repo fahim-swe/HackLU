@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import style from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/signup.module.css';
-function Route()
+function AddRoute()
 {
     const schema=yup.object().shape({
         locationName:yup.string().min(4).required("Location is required"),
@@ -13,30 +13,30 @@ function Route()
         
     }).required();
     const {register,handleSubmit,formState:{errors}} =useForm({resolver: yupResolver(schema)})
-    const [name,setName]=React.useState('');
-    const [phone,setPhone]=React.useState('');
-    const [userName,setUserName]=React.useState('');
-    const [password,setPassword]=React.useState('');
+    const [locationName,setLocationName]=React.useState('');
+    const [latitude,setLatitude]=React.useState('');
+    const [longitude,setLongitude]=React.useState('');
+    const [startTime,setStartTime]=React.useState('');
     const handleChange= (e)=>{
         //  console.log(e);
           const change=e.target.value;
         //  console.log("Abid"+change);
-          if(e.target.name==="name")
-          setName(change);
-          else if(e.target.name==="userName")
-          setUserName(change);
-        else if(e.target.name==="password")
-          setPassword(change);
+          if(e.target.name==="locationName")
+          setLocationName(change);
+          else if(e.target.name==="latitude")
+          setLatitude(change);
+        else if(e.target.name==="startTime")
+        setStartTime(change);
           else 
-          setPhone(change);
+          setLongitude(change);
         
         }
     const submit=(e)=> {
    
-       setName("");
-       setUserName("");
-       setPassword("");
-       setPhone("");
+      setLocationName("");
+      setLongitude("");
+      setLongitude("");
+      setStartTime("");
        
      
       return console.log(e);
@@ -48,42 +48,43 @@ return(
       <form onSubmit={ handleSubmit(submit)}>
       <input
           type="text"
-          name="userName"
-          value={userName}
-          placeholder="Username"
+         placeholder="locationName"
+         value={locationName}
           required="required"
-          {...register('userName')} 
+          {...register('locationName')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.userName?.message}</p>
+          <p className={style.error}>{errors.locationName?.message}</p>
+      <input
+          type="text"
+          name="longitude"
+          value={longitude}
+          placeholder="longitude"
+          required="required"
+          {...register('longitude')} 
+          onChange={handleChange}
+        />
+        <p className={style.error}>{errors.longitude?.message}</p>
         <input
           type="text"
-          name="name"
-          value={name}
-          placeholder="Full Name"
+          name="latitude"
+          value={latitude}
+          placeholder="latitude"
           required="required"
-          {...register('name')} 
+          {...register('latitude')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.name?.message}</p>
+        <p className={style.error}>{errors.latitude?.message}</p>
         <input
           type="text"
-         placeholder="Phone"
-         value={phone}
+         placeholder="startTime"
+         value={startTime}
           required="required"
-          {...register('phone')} 
+          {...register('startTime')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.phone?.message}</p>
-        <input
-          type="password"
-         placeholder="Password"
-         value={password}
-          required="required"
-          {...register('password')} 
-          onChange={handleChange}
-        />
-        <p className={style.error}>{errors.password?.message}</p>
+        <p className={style.error}>{errors.startTime?.message}</p>
+       
         <button type="submit" className={style.btn}>
          Add Route
         </button>
@@ -94,4 +95,4 @@ return(
 )
 }
 
-export default Route;
+export default AddRoute;

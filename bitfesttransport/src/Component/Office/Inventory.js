@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -14,7 +15,7 @@ function Inventory()
     }).required();
     const {register,handleSubmit,formState:{errors}} =useForm({resolver: yupResolver(schema)})
     const [license,setLicense]=React.useState('');
-    const [capacity,setCapacity]=React.useState(0);
+    const [capacity,setCapacity]=React.useState('');
     const [driverName,setDriverName]=React.useState('');
     const [phone,setPhone]=React.useState('');
     const handleChange= (e)=>{
@@ -32,11 +33,24 @@ function Inventory()
         
         }
     const submit=(e)=> {
-   
-        setLicense("");
+      axios.post("http://localhost:7282/TBus",{
+        license: license,
+        capacity: capacity,
+        driverName: driverName,
+        phone:phone,
+      }).then((data)=>{
+       if(data.status===200){
+         console.log(data);
+         /*setLicense("");
         setCapacity(0);
         setDriverName("");
-       setPhone("");
+       setPhone("");*/
+     }}).catch(err=>
+       {
+         console.log(err);
+      
+       });
+       
        
      
       return console.log(e);
@@ -50,22 +64,22 @@ return(
           type="text"
           name="license"
           value={license}
-          placeholder="Username"
+          placeholder="License Number"
           required="required"
           {...register('license')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.userName?.message}</p>
+        <p className={style.error}>{errors.license?.message}</p>
         <input
-          type="number"
+          type="text"
           name="capacity"
           value={capacity}
-          placeholder="Full Name"
+          placeholder="Capacity"
           required="required"
           {...register('capacity')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.name?.message}</p>
+        <p className={style.error}>{errors.capacity?.message}</p>
         <input
           type="text"
          placeholder="driverName"
@@ -74,16 +88,16 @@ return(
           {...register('driverName')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.phone?.message}</p>
+        <p className={style.error}>{errors.driverName?.message}</p>
         <input
           type="text"
-         placeholder="Password"
+         placeholder="Phone"
          value={phone}
           required="required"
           {...register('phone')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.password?.message}</p>
+        <p className={style.error}>{errors.phone?.message}</p>
         <button type="submit" className={style.btn}>
          Add Inventory
         </button>
