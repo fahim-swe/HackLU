@@ -52,6 +52,7 @@ D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\obj\Debug\net6.0\refint\
 D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\obj\Debug\net6.0\api.pdb
 D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\obj\Debug\net6.0\api.genruntimeconfig.cache
 D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\obj\Debug\net6.0\ref\api.dll
+<<<<<<< HEAD
 D:\Bitfest\HackLU\api\bin\Debug\net6.0\appsettings.json
 D:\Bitfest\HackLU\api\bin\Debug\net6.0\appsettings.Development.json
 D:\Bitfest\HackLU\api\bin\Debug\net6.0\api.exe
@@ -79,3 +80,28 @@ D:\Bitfest\HackLU\api\obj\Debug\net6.0\refint\api.dll
 D:\Bitfest\HackLU\api\obj\Debug\net6.0\api.pdb
 D:\Bitfest\HackLU\api\obj\Debug\net6.0\api.genruntimeconfig.cache
 D:\Bitfest\HackLU\api\obj\Debug\net6.0\ref\api.dll
+=======
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\DnsClient.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\MongoDB.Bson.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\MongoDB.Driver.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\SharpCompress.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\linux\native\libsnappy64.so
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\linux\native\libzstd.so
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\osx\native\libsnappy64.dylib
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\osx\native\libzstd.dylib
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\win\native\libzstd.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\win\native\snappy32.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\win\native\snappy64.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\AutoMapper.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+>>>>>>> 317ca2cec341683395a14369841e132e9a68322b
