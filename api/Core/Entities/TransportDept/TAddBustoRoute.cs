@@ -9,5 +9,6 @@ namespace api.Core.Entities.TransportDept
         public string id {get; set;}
         public string BusId {get; set;}
         public string RouteNumber {get; set;}
+        public string Time {get; set;}
     }
 }

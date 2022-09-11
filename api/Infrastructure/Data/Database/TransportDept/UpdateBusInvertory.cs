@@ -72,6 +72,7 @@ namespace api.Infrastructure.Data.Database.TransportDept
 
         public async Task<PassengerDto> GetPassengerOfaRoot(PassengerDemandDto passengerDemandDto)
         {
+            
             var tTransDemand = await _transDemands.Find(x => x.routeNumber == passengerDemandDto.routeName && x.Time == passengerDemandDto.time).FirstOrDefaultAsync();
             var busRoute =await _busRoute.Find(x => x.RouteNumber == passengerDemandDto.routeName).FirstOrDefaultAsync();
 
@@ -85,5 +86,8 @@ namespace api.Infrastructure.Data.Database.TransportDept
         public async Task AddBustoRoute(TAddBustoRoute addBustoRoute){
             await _tAddBustoRoute.InsertOneAsync(addBustoRoute);
         }
+
+
+        
     }
 }
