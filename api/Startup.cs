@@ -2,7 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Core.Interfaces;
 using api.Database;
+using api.Helper;
+using api.Infrastructure.Data.Database.TransportDept;
+using api.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,8 +32,13 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<ApiDataBaseSetttings>(
-                Configuration.GetSection("LearnathonTask")
+                Configuration.GetSection("Database")
             );
+
+            services.AddScoped<TIAccountRepository, TAccountRepository>();
+            services.AddScoped<ITokenService, TokenService>();
+
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
