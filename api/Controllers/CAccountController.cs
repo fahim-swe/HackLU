@@ -23,19 +23,68 @@ namespace api.Controllers
 
 
         
-        [HttpPost("student")]
-        public async Task<IActionResult> CreateStudentAccount(Student student)
+        [HttpPost("create-account")]
+        public async Task<IActionResult> CreateStudentAccount(CAppUserDto cAppUserDto)
+        {
+            if(await _accuont.IsUserNameExits(cAppUserDto.userName))
+            {
+                return BadRequest(new Response<String>("Username Alread Exits"));
+            }
+
+
+            if(cAppUserDto.role == "student"){
+                var student = _mapper.Map<Student>(cAppUserDto);
+                await _accuont.AddStudent(student); 
+            }
+            else if(cAppUserDto.role == "teacher")
+            {
+                var teacher = _mapper.Map<Teacher>(cAppUserDto);
+                await _accuont.AddTeacher(teacher);
+            }
+            else{
+                var staff = _mapper.Map<Staff>(cAppUserDto);
+                await _accuont.AddStaff(staff);
+            }
+
+
+            var user = new TAppUser 
+            {
+                id = cAppUserDto.idNumber,
+                UserName = cAppUserDto.userName,
+                FullName = cAppUserDto.fullName,
+                ContractNumber = cAppUserDto.phone
+            };
+            var _user = _mapper.Map<TUserDto>(user);
+            _user.Token = _tokenService.CreateToken(user);
+
+            return Ok(new Response<TUserDto>(_user));
+            
+        }
+
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDto loginDto)
         {
             
-            await _accuont.AddStudent(student);
+            if(!await _accuont.IsUserNameExits(loginDto.UserName))
+            {
+                return BadRequest(new Response<string>("username not found"));
+            }
+
+            if(!await _accuont.CheckedPassword(loginDto.Password))
+            {
+                return BadRequest(new Response<string>("Wrong password"));
+            }
             
-            var user = _mapper.Map<TAppUser>(student);
-            
+             var user = new TAppUser 
+            {
+                UserName = loginDto.UserName
+            };
             var _user = _mapper.Map<TUserDto>(user);
             _user.Token = _tokenService.CreateToken(user);
 
             return Ok(new Response<TUserDto>(_user));
         }
-
     }
 }

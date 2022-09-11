@@ -58,5 +58,23 @@ namespace api.Infrastructure.Data.Database
         {
             await _teachers.InsertOneAsync(teacher);
         }
+
+
+        public async Task<bool> IsUserNameExits(string userName)
+        {
+            return await _students.Find(x => x.userName == userName).AnyAsync() || 
+                await _teachers.Find(x => x.userName == userName).AnyAsync() || 
+                await _staff.Find(x => x.userName == userName).AnyAsync();
+        }
+
+
+         public async Task<bool> CheckedPassword(string password)
+         {
+             return await _students.Find(x => x.password == password).AnyAsync() || 
+                await _teachers.Find(x => x.password == password).AnyAsync() || 
+                await _staff.Find(x => x.password == password).AnyAsync();
+        }
+        
+
     }
 }

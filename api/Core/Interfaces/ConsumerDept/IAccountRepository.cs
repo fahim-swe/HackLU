@@ -8,6 +8,10 @@ namespace api.Core.Interfaces.ConsumerDept
          Task AddTeacher(Teacher teacher);
          Task AddStaff(Staff staff);
 
+         Task<bool> IsUserNameExits(string userName);
+
+         Task<bool> CheckedPassword(string password);
+
          
     }
 }

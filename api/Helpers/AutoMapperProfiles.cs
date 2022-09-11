@@ -21,6 +21,15 @@ namespace api.Helper
             CreateMap<Student, TAppUser>();
 
             CreateMap<TUserDto, TAppUser>();
+
+
+            CreateMap<CAppUserDto, Student>();
+            CreateMap<CAppUserDto, Teacher>();
+            CreateMap<CAppUserDto, Staff>();
+            CreateMap<CAppUserDto, TAppUser>();
+
+
+            CreateMap<TAppUser, TUserDto>();
         }
     }
 }
