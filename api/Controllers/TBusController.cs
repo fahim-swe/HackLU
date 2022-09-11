@@ -25,7 +25,8 @@ namespace api.Controllers
                 return BadRequest(new Response<string>("Invaid input"));
             }
 
-            await _updateBusInventory.AddBusInvertory(_mapper.Map<TBusInventory>(busInventoryDto));
+            var _busInvertory = _mapper.Map<TBusInventory>(busInventoryDto);
+            await _updateBusInventory.AddBusInvertory(_busInvertory);
 
             return Ok(new Response<string>("New Bus inventory added"));
         }
@@ -35,7 +36,7 @@ namespace api.Controllers
         public async Task<IActionResult> CreateBusRoute()
         {
 
-            
+
             return Ok("");
         }
 

@@ -8,7 +8,7 @@ namespace api.Core.Entities.TransportDept
         public string license{get; set;} = null!;
 
          [Required]
-        public int capacity {get; set;}
+        public string capacity {get; set;}
 
          [Required]
         
@@ -16,8 +16,5 @@ namespace api.Core.Entities.TransportDept
 
          [Required]
         public string phone {get; set;} = null!;
-
-        [Required]
-        public bool isActive {get; set;}
     }
 }
