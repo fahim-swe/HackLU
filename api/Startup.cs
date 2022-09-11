@@ -43,6 +43,7 @@ namespace API
 
             services.AddScoped<TIAccountRepository, TAccountRepository>();
             services.AddScoped<IUpdateBusInventory, UpdateBusInvertory>();
+          
 
             services.AddScoped<ITokenService, TokenService>();
 

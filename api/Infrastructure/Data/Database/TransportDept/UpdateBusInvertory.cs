@@ -87,7 +87,9 @@ namespace api.Infrastructure.Data.Database.TransportDept
             await _tAddBustoRoute.InsertOneAsync(addBustoRoute);
         }
 
-
-        
+        public async Task<IEnumerable<TTransDemand>> GetTTransDemand()
+        {
+            return await _transDemands.Find(_=>true).ToListAsync();
+        }
     }
 }

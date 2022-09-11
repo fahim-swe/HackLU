@@ -84,5 +84,13 @@ namespace api.Controllers
             return Ok(new Response<string>("Added"));
         }
 
+
+
+        [HttpGet("get-transdemand-path")]
+        public async Task<IActionResult> GetTTransPort()
+        {
+            var data = await _updateBusInventory.GetTTransDemand();
+            return Ok(new Response<IEnumerable<TTransDemand>>(data));
+        }
     }
 }

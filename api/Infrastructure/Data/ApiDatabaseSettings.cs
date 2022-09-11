@@ -12,5 +12,15 @@ namespace api.Database
 
         public string TTransDemand {get; set;} = null!;
         public string TAddBustoRoute {get; set;} = null!;
+
+
+
+
+
+
+
+        public string Student {get; set;} = null!;
+        public string Teacher {get; set;} = null!;
+        public string Staff {get; set;} = null!;
     }
 }

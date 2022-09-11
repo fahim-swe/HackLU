@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using api.Core.Dtos;
+using api.Core.Entities.Consumer;
 using api.Core.Entities.TransportDept;
 using api.Core.Interfaces;
 using api.Helper;
@@ -87,4 +88,7 @@ namespace api.Controllers
             return Ok(new Response<TUserDto>(_user));
         }
     }
+
+
+   
 }

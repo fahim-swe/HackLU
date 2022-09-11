@@ -16,5 +16,7 @@ namespace api.Core.Interfaces.TransportDept
          Task<PassengerDto> GetPassengerOfaRoot(PassengerDemandDto passengerDemandDto);
 
          Task AddBustoRoute(TAddBustoRoute addBustoRoute);
+
+         Task<IEnumerable<TTransDemand>> GetTTransDemand();
     }
 }
