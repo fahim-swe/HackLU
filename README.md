@@ -17,12 +17,12 @@ you did not understand. Let us know, and we will get back to you as soon as we c
 
 ## Judge Panel
 
-- [ ] Shafkat Kibria, Assistant Professor @[Leading University](https://www.lus.ac.bd/author/shafkat/)
-- [ ] Md Shahjahan, Founder & Managing Director @[Authlab](https://authlab.io/)
-- [ ] Ershadur Rahman Talukder, CTO & Co-Founder @[Inverse.AI](https://inverseai.com/)
-- [ ] Syed Rezwanul Haque Rubel, Co-Founder & Managing Director @[Technext Limited](https://technext.it/)
-- [ ] Sayed Al Mahdi, Lead Software Engineer @[LII Lab](https://liilab.com/)
-- [ ] Shahriar Arefin Zummon, Lecturer @[Leading University](https://www.lus.ac.bd/author/shahriar/)
+- [x] Shafkat Kibria, Assistant Professor @[Leading University](https://www.lus.ac.bd/author/shafkat/)
+- [x] Md Shahjahan, Founder & Managing Director @[Authlab](https://authlab.io/)
+- [x] Ershadur Rahman Talukder, CTO & Co-Founder @[Inverse.AI](https://inverseai.com/)
+- [x] Syed Rezwanul Haque Rubel, Co-Founder & Managing Director @[Technext Limited](https://technext.it/)
+- [x] Sayed Al Mahdi, Lead Software Engineer @[LII Lab](https://liilab.com/)
+- [x] Shahriar Arefin Zummon, Lecturer @[Leading University](https://www.lus.ac.bd/author/shahriar/)
 
 ## Marking Criteria **[Total 150 points]**
 
