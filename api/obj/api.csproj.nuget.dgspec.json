@@ -1,27 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj": {}
+    "D:\\Bitfest\\HackLU\\api\\api.csproj": {}
   },
   "projects": {
-    "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj": {
+    "D:\\Bitfest\\HackLU\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj",
+        "projectUniqueName": "D:\\Bitfest\\HackLU\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\okaus\\.nuget\\packages\\",
-        "outputPath": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\obj\\",
+        "projectPath": "D:\\Bitfest\\HackLU\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\Bitfest\\HackLU\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\okaus\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
@@ -49,7 +46,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
