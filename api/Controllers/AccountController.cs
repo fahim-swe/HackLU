@@ -31,13 +31,13 @@ namespace api.Controllers
         {
                 
                 if(!ModelState.IsValid){
-                    return Ok(new Response<string>("Invalid Formate"));
+                    return BadRequest(new Response<string>("Invalid Formate"));
                 }
 
               
 
                 if(await _taccount.IsUsernameExits(registerDTO.UserName)) 
-                    return Ok(new Response<string>("Username already exits"));
+                    return BadRequest(new Response<string>("Username already exits"));
                     
                 using var hmac = new HMACSHA512();
                 var user = new TAppUser{
@@ -65,7 +65,7 @@ namespace api.Controllers
         {
             
             if(!ModelState.IsValid){
-                    return Ok(new Response<string>("Invalid Input"));
+                    return BadRequest(new Response<string>("Invalid Input"));
             }
 
             var user = await _taccount.GetByUsername(loginDto.UserName);
@@ -77,7 +77,7 @@ namespace api.Controllers
 
             for(int i = 0; i < computedHash.Length; i++){
                 if(computedHash[i] != user.PasswordHash[i]){
-                        return Ok(new Response<string>("Wrong Password"));
+                        return BadRequest(new Response<string>("Wrong Password"));
                 }
             }
 
