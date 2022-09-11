@@ -15,7 +15,7 @@ function Inventory()
     }).required();
     const {register,handleSubmit,formState:{errors}} =useForm({resolver: yupResolver(schema)})
     const [license,setLicense]=React.useState('');
-    const [capacity,setCapacity]=React.useState('');
+    const [capacity,setCapacity]=React.useState(0);
     const [driverName,setDriverName]=React.useState('');
     const [phone,setPhone]=React.useState('');
     const handleChange= (e)=>{
@@ -33,18 +33,21 @@ function Inventory()
         
         }
     const submit=(e)=> {
-      axios.post("http://localhost:7282/TBus",{
+      axios.post("https://localhost:7282/TBus",{
         license: license,
         capacity: capacity,
         driverName: driverName,
         phone:phone,
-      }).then((data)=>{
+        isActive:true
+      },{headers:{
+        "Authorization":`Bearer ${localStorage.getItem("token")}`,
+      }}).then((data)=>{
        if(data.status===200){
          console.log(data);
-         /*setLicense("");
+         setLicense("");
         setCapacity(0);
         setDriverName("");
-       setPhone("");*/
+       setPhone("");
      }}).catch(err=>
        {
          console.log(err);
@@ -71,7 +74,7 @@ return(
         />
         <p className={style.error}>{errors.license?.message}</p>
         <input
-          type="text"
+          type="number"
           name="capacity"
           value={capacity}
           placeholder="Capacity"

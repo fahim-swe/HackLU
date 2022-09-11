@@ -39,10 +39,11 @@ function SignUp()
       }).then((data)=>{
        if(data.status===200){
          console.log(data);
-         if(data.data.errors==null){
-         localStorage.setItem("username",data.data.userName);
-         localStorage.setItem("token",data.data.token);
-         localStorage.setItem("id",data.data.id);
+         console.log(data.data.errors);
+         if(data.data.errors===null){
+         localStorage.setItem("username",data.data.data.userName);
+         localStorage.setItem("token",data.data.data.token);
+         localStorage.setItem("id",data.data.data.id);
          }
          
      }}).catch(err=>

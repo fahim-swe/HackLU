@@ -1,0 +1,20 @@
+.office {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: nowrap;
+  color: white;
+  margin-top: 30px;
+}
+.office .item {
+  font-size: 130%;
+  padding-top: 20px;
+  text-align: center;
+  margin-right: 30px;
+  width: 30%;
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.1),
+    -10px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.office img {
+  width: max-content;
+  height: 200px;
+}

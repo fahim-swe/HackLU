@@ -1,9 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 import * as yup from 'yup';
-
 import style from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/signup.module.css';
 function Login()
 {
@@ -32,8 +32,22 @@ function Login()
     const submit=(e)=> {
    
      
-       setUserName("");
-       setPassword("");
+      axios.post(`https://localhost:7282/Account/staff`,{
+       userName,password
+       }).then((data)=>{
+        if(data.status===200){
+          console.log(data);
+          localStorage.setItem("username",data.data.data.userName);
+          localStorage.setItem("token",data.data.data.token);
+          localStorage.setItem("id",data.data.data.id);
+        setUserName("");
+        setPassword("");
+        
+      }}).catch(err=>
+        {
+          console.log(err);
+       
+        });
       
        
      

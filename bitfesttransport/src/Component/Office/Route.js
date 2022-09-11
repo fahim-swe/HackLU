@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -9,7 +10,8 @@ function AddRoute()
         locationName:yup.string().min(4).required("Location is required"),
       latitude:yup.string().required("Latitude is required"),
       longitude:yup.string().required("Username is required or Username needs to be more than 4 characters"),
-      startTime:yup.string().min(8).required("Start Time is required")
+      stoppagePoint:yup.string().min(15).required("Stoppage points are required"),
+      startTime:yup.string().min(2).required("Start Time is required")
         
     }).required();
     const {register,handleSubmit,formState:{errors}} =useForm({resolver: yupResolver(schema)})
@@ -17,6 +19,7 @@ function AddRoute()
     const [latitude,setLatitude]=React.useState('');
     const [longitude,setLongitude]=React.useState('');
     const [startTime,setStartTime]=React.useState('');
+    const [stoppagePoint,setStoppagePoint]=React.useState("");
     const handleChange= (e)=>{
         //  console.log(e);
           const change=e.target.value;
@@ -27,16 +30,34 @@ function AddRoute()
           setLatitude(change);
         else if(e.target.name==="startTime")
         setStartTime(change);
+        else if(e.target.name==="stoppagePoint")
+        setStoppagePoint(change)
           else 
           setLongitude(change);
         
         }
     const submit=(e)=> {
-   
-      setLocationName("");
+      axios.post("https://localhost:7282/TBus/create-bus-route",{
+        locationName,latitude,longitude,Time:startTime,stoppagePoint
+      },{headers:{
+        "Authorization":`Bearer ${localStorage.getItem("token")}`,
+      }}).then((data)=>{
+       if(data.status===200){
+         console.log(data);
+         setStartTime("");
+       setLocationName("");
+       setLongitude("");
+       setLatitude("");
+       setStoppagePoint("");
+     }}).catch(err=>
+       {
+         console.log(err);
+      
+       });
+     /* setLocationName("");
       setLongitude("");
       setLongitude("");
-      setStartTime("");
+      setStartTime("");*/
        
      
       return console.log(e);
@@ -84,7 +105,16 @@ return(
           onChange={handleChange}
         />
         <p className={style.error}>{errors.startTime?.message}</p>
-       
+        <input
+          type="text"
+          name="stoppagePoint"
+          value={stoppagePoint}
+          placeholder="Stoppage Points"
+          required="required"
+          {...register('stoppagePoint')} 
+          onChange={handleChange}
+        />
+        <p className={style.error}>{errors.stoppagePoint?.message}</p>
         <button type="submit" className={style.btn}>
          Add Route
         </button>
