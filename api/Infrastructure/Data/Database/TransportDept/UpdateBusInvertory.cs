@@ -50,7 +50,8 @@ namespace api.Infrastructure.Data.Database.TransportDept
 
         public async Task<IEnumerable<TBusInventory>> GetAvailableBus()
         {
-            var buss=  await _busInventoryCollection.Find( x => x.isActive == true).ToListAsync();
+            var buss=  await _busInventoryCollection.Find( x => x.isActive == true && x.isAvailable == true)
+                .ToListAsync();
             return buss;
         }
 
@@ -84,6 +85,11 @@ namespace api.Infrastructure.Data.Database.TransportDept
 
 
         public async Task AddBustoRoute(TAddBustoRoute addBustoRoute){
+
+            var _busInvertory = await _busInventoryCollection.Find(x => x.id == addBustoRoute.BusId).FirstOrDefaultAsync();
+            _busInvertory.isAvailable = false;
+            await _busInventoryCollection.ReplaceOneAsync(x => x.id == addBustoRoute.BusId, _busInvertory);
+
             await _tAddBustoRoute.InsertOneAsync(addBustoRoute);
         }
 

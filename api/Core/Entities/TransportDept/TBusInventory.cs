@@ -13,5 +13,7 @@ namespace api.Core.Entities.TransportDept
         public string driverName {get;set;} = null!;
         public string phone {get; set;} = null!;
         public bool isActive {get; set;} = false;
+
+        public bool isAvailable {get; set;} = true;
     }
 }
