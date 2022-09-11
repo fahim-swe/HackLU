@@ -1,3 +1,4 @@
+using api.Core.Dtos;
 using api.Core.Entities.TransportDept;
 using api.Core.Interfaces.TransportDept;
 using api.Helper;
@@ -7,9 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
-     [Authorize]
+   
+   [Authorize]
     public class TBusController : BaseApiController
     {
+        
         private readonly IUpdateBusInventory _updateBusInventory;
         private readonly IMapper _mapper;
         public TBusController(IUpdateBusInventory updateBusInventory, IMapper mapper)
@@ -35,12 +38,14 @@ namespace api.Controllers
 
 
         [HttpPost("create-bus-route")]
-        public async Task<IActionResult> CreateBusRoute()
+        public async Task<IActionResult> CreateBusRoute(TCreateRouteDto createRouteDto)
         {
+            var busRoute = _mapper.Map<TBusRoute>(createRouteDto);
+            await _updateBusInventory.AddBusRoute(busRoute);
 
-
-            return Ok("");
+            return Ok(new Response<TBusRoute>(busRoute));
         }
+        
 
     }
 }

@@ -6,5 +6,7 @@ namespace api.Core.Interfaces.TransportDept
     {
          Task AddBusInvertory(TBusInventory busInvertory);
          Task<IEnumerable<TBusInventory>> GetAvailableBus();
+
+         Task AddBusRoute(TBusRoute busRoute);
     }
 }

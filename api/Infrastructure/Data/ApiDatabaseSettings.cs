@@ -7,5 +7,7 @@ namespace api.Database
         public string TAppUser { get; set; } = null!;
 
         public string TBusInventory {get; set;} = null!;
+
+        public string TBusRoute {get; set; } = null!;
     }
 }

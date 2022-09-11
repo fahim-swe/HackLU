@@ -13,6 +13,7 @@ namespace api.Helper
         public AutoMapperProfiles(){
             CreateMap<TAppUser, TUserDto>();
             CreateMap<BusInventoryDto, TBusInventory>();
+            CreateMap<TCreateRouteDto, TBusRoute>();
         }
     }
 }

@@ -2,9 +2,8 @@ namespace api.Core.Dtos
 {
     public class TCreateRouteDto
     {
-        private static int RouteNumber = 0;
-        
-        public int routeNumber = RouteNumber++;
-        
+        public string locationName {get; set;} = null!;
+        public string latitude {get; set;} = null!;
+        public string longitude {get; set;} = null!;
     }
 }

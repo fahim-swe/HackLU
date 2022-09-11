@@ -10,6 +10,7 @@ namespace api.Infrastructure.Data.Database.TransportDept
     {
 
         private readonly IMongoCollection<TBusInventory> _busInventoryCollection;
+        private readonly IMongoCollection<TBusRoute> _busRoute;
         public UpdateBusInvertory(IOptions<ApiDataBaseSetttings> userNameStoreDatabaseSettings)
         {
             var mongoClient = new MongoClient(
@@ -20,6 +21,10 @@ namespace api.Infrastructure.Data.Database.TransportDept
 
             _busInventoryCollection = mongoDatabase.GetCollection<TBusInventory>(
                 userNameStoreDatabaseSettings.Value.TBusInventory);
+
+            _busRoute  = mongoDatabase.GetCollection<TBusRoute>(
+                userNameStoreDatabaseSettings.Value.TBusRoute
+            );
         }
         public async Task AddBusInvertory(TBusInventory busInvertory)
         {
@@ -29,6 +34,11 @@ namespace api.Infrastructure.Data.Database.TransportDept
         public async Task<IEnumerable<TBusInventory>> GetAvailableBus()
         {
             return await _busInventoryCollection.Find( x => x.isActive == true).ToListAsync();
+        }
+
+        public async Task AddBusRoute(TBusRoute busRoute)
+        {
+            await _busRoute.InsertOneAsync(busRoute);   
         }
     }
 }
