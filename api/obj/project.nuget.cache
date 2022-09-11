@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uMBwLLzZ8Uj8PZ1InfJGl2IIAOm60iB1uXC5ThPuWFeDIqhujn5si3TSpLf7RHEAZ6wEfCJ3WCN4BVsUkYWWRA==",
+  "dgSpecHash": "L+5tL9zuWxvWD3mXbGphOXcDCCZ+4xxpSZkOP4E96GPQ+jArD6wL9D5qBvXDHK/sMtMRcIXRD3KQ/iv2jZj3+A==",
   "success": true,
   "projectFilePath": "D:\\LEADING_UNIVERSITY_HACK_11_10_2022\\HackLU\\HackLU\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\okaus\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\okaus\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.8\\microsoft.aspnetcore.authentication.jwtbearer.6.0.8.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
@@ -15,6 +16,8 @@
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.23.1\\microsoft.identitymodel.abstractions.6.23.1.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.23.1\\microsoft.identitymodel.jsonwebtokens.6.23.1.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.identitymodel.logging\\6.23.1\\microsoft.identitymodel.logging.6.23.1.nupkg.sha512",
+    "C:\\Users\\okaus\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\okaus\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.23.1\\microsoft.identitymodel.tokens.6.23.1.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\okaus\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

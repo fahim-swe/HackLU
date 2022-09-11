@@ -75,3 +75,6 @@ D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microso
 D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\AutoMapper.dll
 D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\LEADING_UNIVERSITY_HACK_11_10_2022\HackLU\HackLU\api\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
