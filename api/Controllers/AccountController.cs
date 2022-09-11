@@ -3,6 +3,7 @@ using System.Text;
 using api.Core.Dtos;
 using api.Core.Entities.TransportDept;
 using api.Core.Interfaces;
+using api.Helper;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -53,7 +54,7 @@ namespace api.Controllers
                 var _user = _mapper.Map<TUserDto>(user);
                 _user.Token = _tokenService.CreateToken(user);
 
-             return Ok(_user);
+             return Ok(new Response<TUserDto>(_user));
         }
     
 
@@ -68,7 +69,7 @@ namespace api.Controllers
             }
 
             var user = await _taccount.GetByUsername(loginDto.UserName);
-            if(user == null) return BadRequest ("Invalid username");
+            if(user == null) return Ok(new Response<string>("Invalid User"));
 
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
@@ -76,14 +77,14 @@ namespace api.Controllers
 
             for(int i = 0; i < computedHash.Length; i++){
                 if(computedHash[i] != user.PasswordHash[i]){
-                        return BadRequest("Wrong Password");
+                        return Ok(new Response<string>("Wrong Password"));
                 }
             }
 
             var _user = _mapper.Map<TUserDto>(user);
                 _user.Token = _tokenService.CreateToken(user);
 
-            return Ok(_user);
+            return Ok(new Response<TUserDto>(_user));
         }
     }
 }
