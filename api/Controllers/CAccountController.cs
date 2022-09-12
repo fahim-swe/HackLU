@@ -99,7 +99,7 @@ namespace api.Controllers
 
 
         [HttpPost("get-student")]
-        public async Task<IActionResult> GetStudent(string userName)
+        public async Task<IActionResult> GetStudent([FromBody]string userName)
         {
             return Ok(await _accuont.GetStudent(userName));
         }
