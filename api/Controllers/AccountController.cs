@@ -12,6 +12,7 @@ namespace api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    
     public class AccountController : ControllerBase
     {
             

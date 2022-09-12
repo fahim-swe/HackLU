@@ -3,12 +3,15 @@ using api.Core.Entities.Consumer;
 using api.Core.Entities.TransportDept;
 using api.Core.Interfaces;
 using api.Core.Interfaces.ConsumerDept;
+using api.Extensions;
 using api.Helper;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
 {
+    [Authorize]
     public class CAccountController : BaseApiController
     {
         private readonly IAccountRepository _accuont;
@@ -98,9 +101,10 @@ namespace api.Controllers
         }
 
 
-        [HttpPost("get-student")]
-        public async Task<IActionResult> GetStudent([FromBody]string userName)
+        [HttpGet("get-student")]
+        public async Task<IActionResult> GetStudent()
         {
+            var userName  = User.GetUsername();
             return Ok(await _accuont.GetStudent(userName));
         }
 

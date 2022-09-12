@@ -101,7 +101,8 @@ namespace api.Infrastructure.Data.Database.TransportDept
 
         public async Task<IEnumerable<TTransDemand>> GetTTransDemand()
         {
-
+            var data = await _transDemands.Find( _=> true).ToListAsync();
+            
             return await _transDemands.Find(_=>true).ToListAsync();
         }
 

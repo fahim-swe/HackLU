@@ -22,6 +22,7 @@ namespace api.Infrastructure.Services
            {
              new Claim(JwtRegisteredClaimNames.NameId, user.id.ToString()),
              new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+             new Claim(ClaimTypes.NameIdentifier, user.UserName)
             
            };
 
