@@ -127,8 +127,11 @@ body {
 .login {
   margin-left: 40%;
   margin-top: 100px;
-  width: 300px;
+  width: 350px;
   height: 300px;
+}
+.showText {
+  font-size: 130%;
 }
 .login h1 {
   color: #fff;

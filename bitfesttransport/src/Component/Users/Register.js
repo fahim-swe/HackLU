@@ -42,7 +42,7 @@ function Register()
        "Authorization":`Bearer ${localStorage.getItem("token")}`,
      }}).then((data)=>{
        if(data.status===200){
-        console.log(data.data);
+        //console.log(data.data);
       setBuses(data.data.data);
       arr1.current=data.data.data;
    setWhat(true);
@@ -65,13 +65,13 @@ function Register()
           else if(e.target.name==="id")
           setId(change);
           else if(e.target.name==="role"){
-            if(change.match("Student"))
+            if(change.match("student"))
             {
                 setStudent(true);
                 setTeacher(false);
                 setRole(change);
             }
-            else if(change==="Teacher")
+            else if(change==="teacher")
             {
                 setStudent(false);
                 setTeacher(true);
@@ -89,7 +89,7 @@ function Register()
         else if(e.target.name==="routeandtime")
         setTimeSlot(change);
           else if(e.target.name==="pickup"){
-         console.log("abid");
+        // console.log("abid");
           let arr=[];
           if(buses.length===0)
           setBuses(arr1.current);
@@ -122,9 +122,12 @@ function Register()
         const [avBuses,setavBuses]=useState([]);
        
     const submit=(e)=> {
+      e.preventDefault();
+      console.log("Hello")
         if(role==="Staff"){
-      axios.post(`https://localhost:7282/Account/staff`,{
-       name,phone,userName,password,id,role,pickup,time:timeSlot
+      axios.post(`https://localhost:7282/CAccount/create-account
+      `,{
+       fullName:name,phone,userName,password,id,role,stoppage:pickup,time:timeSlot
       }).then((data)=>{
        if(data.status===200){
          console.log(data);
@@ -141,10 +144,12 @@ function Register()
       
        });
     }
-       else if(role==="Student")
+       else if(role==="student")
        {
-        axios.post(`https://localhost:7282/Account/student`,{
-            name,phone,userName,password,id,role,pickup,section,batchNumber,time:timeSlot
+        console.log(role);
+        axios.post(`https://localhost:7282/CAccount/create-account
+        `,{
+          fullName:name,phone,userName,password,idNumber:id,role,stoppage:pickup,section,batchNumber,time:timeSlot
           }).then((data)=>{
            if(data.status===200){
              console.log(data);
@@ -163,8 +168,9 @@ function Register()
        }
        else 
        {
-        axios.post(`https://localhost:7282/Account/teacher`,{
-            fullName:name,contractNumber:phone,userName,password,id,role,pickup,department:dept,designation:desig,time:timeSlot
+        console.log("Abid1")
+        axios.post(`https://localhost:7282/CAccount/create-account`,{
+            fullName:name,phone,userName,password,idNumber:id,role,stoppage:pickup,department:dept,designation:desig,time:timeSlot
           }).then((data)=>{
            if(data.status===200){
              console.log(data);
@@ -183,14 +189,14 @@ function Register()
        }
        
      
-      return console.log(e);
+    //  return console.log(e);
     }
 return(
     <div className={style.login1}>
   <div className={style.login}>
       <h1>Sign Up</h1>
-      <form onSubmit={ handleSubmit(submit)}>
-      <input
+     <form onSubmit={submit}>
+     <input
           type="text"
           name="userName"
           value={userName}
@@ -260,7 +266,7 @@ return(
           {...register('designation')} 
           onChange={handleChange}
         />
-        <p className={style.error}>{errors.batchNumber?.message}</p>
+        <p className={style.error}>{errors.designation?.message}</p>
         <input
           type="text"
          placeholder="dept"
@@ -272,11 +278,11 @@ return(
         <p className={style.error}>{errors.dept?.message}</p></div>}
          <select  {...register("role")} value={role} onChange={handleChange}>
       
-      <option value="Student">Student</option>
-      <option value="Teacher">Teacher</option>
-      <option value="Staff">Staff</option>
+      <option value="student">student</option>
+      <option value="teacher">teacher</option>
+      <option value="staff">staff</option>
   </select>
-  {hide&&what&&<div>
+  {hide&&what&&
     <select  name="routeandtime" value={timeSlot} onChange={handleChange}>
       
     {buses.map((e)=>{
@@ -288,10 +294,10 @@ return(
       )
     })}
      </select>
-    </div>}
-  <p className={style.error}>{errors.type?.message}</p>
+  }
+  
  
-        <p className={style.error}>{errors.userName?.message}</p>
+      
   <input
           type="text"
          placeholder="Pickup Point"
@@ -310,13 +316,12 @@ return(
           onChange={handleChange}
         />
         <p className={style.error}>{errors.password?.message}</p>
-        <button type="submit" className={style.btn}>
-         SignUp
-        </button>
-        <NavLink className={style.btn} to="/user/login">
+        <input type="submit" className={style.btn}/>
+        
+     </form>
+      <NavLink className={style.btn} to="/user/login">
               Login
             </NavLink>
-      </form>
     </div>
  </div>
 )

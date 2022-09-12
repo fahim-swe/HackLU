@@ -1,11 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.module.css';
  function Optimize() {
-   
+  const [hi,setHi]=useState(false)
+   const emptySeats=useRef(0);
     const [point,setPoint] = useState([]);
     const [what, setWhat] = useState(false);
   const [buses, setBuses] = useState([]);
@@ -19,6 +20,7 @@ import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.mo
   }).required();
   const {register,handleSubmit,formState:{errors}} =useForm({resolver: yupResolver(schema)})
  const [inp,setInp]=useState(true);
+ const [text,setText]=useState("");
   const [time,setTime]=React.useState('');
   const [routeName,setRouteName]=React.useState('');
   const handleChange= (e)=>{
@@ -99,37 +101,39 @@ import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.mo
       }}).then((data1)=>{
         if(data1.status===200){
           console.log(data.data.data.staff);
-          /*  let total=parseInt(data.data.data.sthers)+parseInt(data.data.data.staff)+parseInt(data.data.data.students)+parseInt(data.data.data.teachers);*/
-          let total=20;
-         
-         console.log(total);
+           let total=parseInt(data.data.data.sthers)+parseInt(data.data.data.staff)+parseInt(data.data.data.students)+parseInt(data.data.data.teachers);
+           console.log(total);
+           emptySeats.current=total;
+         data1.data.sort(function(a, b){return a.capacity-b.capacity});
+         console.log(data1.data);
          let capacityTotal=0;
          let arr=[];
          let otherArr=[];
+         let y1=0;
+         let j=data1.data.length;
          for(let i=0;i<data1.data.length;i++)
          {
          
             let p=parseInt(data1.data[i].capacity);
           
-           if(total+15>=0){
-            total-=p;
+           if(y1+data1.data[i].capacity/3<=total){
+           y1+=p;
            arr.push(data1.data[i]);
            }
-           else
+          else
            {
-            for(let j=i;j<data1.data.length;j++)
-            {
-                if(data1.data[j].capacity<=total)
-                arr.push(data1.data[j]);
-                else
-                otherArr.push(data1.data[j]);
-
-            }
+            j=i;
             break;
            }
-         }
+          }
+            for(let k=j;k<data1.data.length;k++)
+            {
+                
+                otherArr.push(data1.data[k]); 
+             }
          setOtherBuses(otherArr);
-        
+        if(y1<total)
+        setText(`${total-y1} people do not have place to visit by vehicles`);
     
          setInp(false);
        setBuses(arr);
@@ -151,12 +155,47 @@ import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.mo
     
      return console.log(e);
    }
-   const addBus=(id)=>{
-    console.log(id);
+   const addBus=(id,capacity,license)=>{
+    const result = routes.filter(getStop);
+    setHi(true);
+    setInterval(()=>{
+      setHi(false);
+    },5000);
+
+function getStop(rou) {
+  return rou.routeNumber===routeName;
+}
+    console.log(result);
+    emptySeats.current-=capacity;
+    console.log(typeof emptySeats.current );
+   let p=emptySeats.current;
+    if(emptySeats.current<0)
+    {
+     p*=-1;
+     axios.post("https://localhost:7282/TBus/add-empty-sit",{
+      "routeNumber": routeName,
+      "emptySeats": p+"",
+      "empty":p+"",
+      "time": time,
+      "busId": id,
+      "license": license,
+      "stoppagePoint": result[0].stoppagePoint
+    },{headers:{
+      "Authorization":`Bearer ${localStorage.getItem("token")}`,
+    }}).then(data=>{
+      if(data.status===200)
+      console.log(data);
+    }).catch(err=>{
+      console.log(err);
+    })
+    }
     axios.post("https://localhost:7282/TBus/add-buses-to-route",{
       busId: id,
       "routeNumber": routeName,
-      "time":time
+      "time":time,
+      license,
+      capacity,
+      stoppagePoint:result[0].stoppagePoint
     },{headers:{
       "Authorization":`Bearer ${localStorage.getItem("token")}`,
     }}).then(data=>{
@@ -170,6 +209,7 @@ import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.mo
   
     return (
         <div className={styles.optimize}>
+          {hi&&<p style={{fontSize:"130%",backgroundColor:"#4FC3A1",padding:"10px"}}>Bus was added successfully</p>}
           {inp&&<form onSubmit={ handleSubmit(submit)}>
       <input
           type="text"
@@ -217,7 +257,7 @@ import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.mo
                         <td >{e.license}</td>
                         <td >{e.capacity}</td>
                         <td>{e.driverName}</td>
-                        <td><button style={{padding:"0px 20px",backgroundColor:"white"}} onClick={()=> addBus(e.id,time,routeName)}>Add</button></td>
+                        <td><button style={{padding:"0px 20px",backgroundColor:"white"}} onClick={()=> addBus(e.id,e.capacity,e.license,time,routeName)}>Add</button></td>
 
                       </tr>
                     )
@@ -257,7 +297,7 @@ import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/optimize.mo
               
               </tbody>
             </table>
-            
+            <h2>{text}</h2>
                </div>}
         </div>
     );

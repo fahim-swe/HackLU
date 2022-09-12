@@ -1,11 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Navigate } from 'react-router-dom';
 import * as yup from 'yup';
 import style from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/signup.module.css';
 function AddRoute()
 {
+  const [redi,setRedi]=useState(false);
     const schema=yup.object().shape({
         locationName:yup.string().min(4).required("Location is required"),
       latitude:yup.string().required("Latitude is required"),
@@ -43,6 +45,7 @@ function AddRoute()
         "Authorization":`Bearer ${localStorage.getItem("token")}`,
       }}).then((data)=>{
        if(data.status===200){
+        setRedi(true);
          console.log(data);
          setStartTime("");
        setLocationName("");
@@ -121,6 +124,7 @@ return(
        
       </form>
     </div>
+    {redi&&<Navigate to="/office/home"></Navigate>}
  </div>
 )
 }

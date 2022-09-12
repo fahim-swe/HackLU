@@ -1,12 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import * as yup from 'yup';
 import style from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/signup.module.css';
 function Login()
 {
+  const [redi,setRedi]=useState(false);
     const schema=yup.object().shape({
        
       userName:yup.string().min(4).required("Username is required or Username needs to be more than 4 characters"),
@@ -42,6 +43,7 @@ function Login()
           localStorage.setItem("id",data.data.data.id);
         setUserName("");
         setPassword("");
+        setRedi(true);
         
       }}).catch(err=>
         {
@@ -87,6 +89,7 @@ return(
             </NavLink>
       </form>
     </div>
+    {redi&&<Navigate to="/office/home"></Navigate>}
  </div>
 )
 }

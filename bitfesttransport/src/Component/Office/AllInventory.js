@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/busshowcase.module.css';
 
 function AllInventory()
 {
+    const [redi,setRedi]=useState(false);
     const [what,setWhat]=useState(false);
     const [buses,setBuses]=useState([]);
     const [avBuses,setavBuses]=useState([]);
@@ -15,7 +17,7 @@ function AllInventory()
             if(data1.status===200){
              console.log(data1.data);
              setavBuses(data1.data);
-           
+              setRedi(true);
              setWhat(true);
           }}).catch(err=>
             {
@@ -58,6 +60,7 @@ return(
    
     </div>
 </div>}
+{redi&&<Navigate to="/office/home"></Navigate>}
 </div>
 )
 }

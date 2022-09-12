@@ -38,7 +38,8 @@ function Inventory()
         capacity: capacity,
         driverName: driverName,
         phone:phone,
-        isActive:true
+        isActive:true,
+        isAvailable:true
       },{headers:{
         "Authorization":`Bearer ${localStorage.getItem("token")}`,
       }}).then((data)=>{

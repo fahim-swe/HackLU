@@ -14,14 +14,15 @@ function UserProfile()
     const [what,setWhat]=useState(true);
     const [profile,setProfile]=useState(true);
     const [bus,setBus]=useState(false);
+    const [req,setReq]=useState(false);
     const [edit,setEdit]=useState(false);
     //const [app,setApp]=useState(false);
     const profileHandler=()=>{
         if(profile===false){
         setProfile(true);
         setEdit(false);
-       /* setOrder(false);
-        setApp(false);*/
+        setBus(false);
+        setReq(false);
         }
         
         
@@ -33,7 +34,7 @@ function UserProfile()
         setBus(true);
         setEdit(false);
         setProfile(false);
-     //   setApp(false);
+      setReq(false);
 
         }
     }
@@ -42,9 +43,9 @@ function UserProfile()
         //console.log("HI I am Abid")
         if(edit===false){
         setEdit(true);
-      //  setOrder(false);
+      setBus(false);
         setProfile(false);
-       // setApp(false);
+       setReq(false);
 
         }
     }
@@ -126,14 +127,26 @@ return(
                 <img  src={customer} alt="Customer"></img>
               <h3>Profile</h3>
             </div>
-             
+            <NavLink to="/user/edit"> 
+
             <div className={styles.profile} onClick={editHandler}>
                 <img  src={edit1} alt="Edit"></img>
               <h3>Edit Profile</h3>
             </div>
+            </NavLink>
            <NavLink to="/user/busshow"> <div className={styles.profile} onClick={busHandler}>
                 <img  src={bus1} alt="Vehicles"></img>
               <h3>Vehicles</h3>
+            </div>
+            </NavLink>
+            <NavLink to="/user/bindedbus"> <div className={styles.profile} onClick={busHandler}>
+                <img  src={bus1} alt="Vehicles"></img>
+              <h3>Routed Vehicles</h3>
+            </div>
+            </NavLink>
+            <NavLink to="/user/reqseat"> <div className={styles.profile} onClick={busHandler}>
+                <img  src={bus1} alt="Vehicles"></img>
+              <h3>Request Seat</h3>
             </div>
             </NavLink>
         </div>}

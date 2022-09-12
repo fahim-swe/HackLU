@@ -1,11 +1,13 @@
 .office {
   box-sizing: border-box;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   color: white;
   margin-top: 30px;
 }
 .office .item {
+  margin-left: 20px;
+  margin-bottom: 20px;
   font-size: 130%;
   padding-top: 20px;
   text-align: center;
