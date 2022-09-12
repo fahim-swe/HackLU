@@ -108,6 +108,33 @@ namespace api.Controllers
             return Ok(new Response<IEnumerable<TAddBustoRoute>>(await _updateBusInventory.GetTAddBusToRoute()));
         }
 
+
+        [HttpPost("add-empty-sit")]
+        public async Task<IActionResult> AddEmptySit(TEmptySitDto emptySit)
+        {
+
+            var data = new TEmplySit
+            {
+                routeNumber = emptySit.routeNumber,
+                emptySeats = emptySit.emptySeats,
+                time = emptySit.time,
+                busId = emptySit.busId,
+                license = emptySit.license,
+                stoppagePoint = emptySit.stoppagePoint
+            };
+
+            await _updateBusInventory.AddEmptySite(data);
+
+            return Ok(new Response<string>("Ok"));
+        }
+
+        [HttpGet("get-empty-sit")]
+        public async Task<IActionResult> GetEmptySit()
+        {
+            var data = _updateBusInventory.GetEmptySits();
+
+            return Ok(data);
+        }
         
     }
 }

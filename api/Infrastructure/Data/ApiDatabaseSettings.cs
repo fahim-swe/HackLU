@@ -22,5 +22,7 @@ namespace api.Database
         public string Student {get; set;} = null!;
         public string Teacher {get; set;} = null!;
         public string Staff {get; set;} = null!;
+
+        public string TEmplySit {get; set;} = null!;
     }
 }

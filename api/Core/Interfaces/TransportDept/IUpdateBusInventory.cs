@@ -21,5 +21,9 @@ namespace api.Core.Interfaces.TransportDept
 
 
          Task<IEnumerable<TAddBustoRoute>> GetTAddBusToRoute();
+
+
+         Task AddEmptySite(TEmplySit emplySit);
+         Task<IEnumerable<TEmplySit>> GetEmptySits();
     }
 }

@@ -11,6 +11,7 @@ namespace api.Infrastructure.Data.Database.TransportDept
     public class UpdateBusInvertory : IUpdateBusInventory
     {
 
+        private readonly IMongoCollection<TEmplySit> _emptySits;
         private readonly IMongoCollection<TBusInventory> _busInventoryCollection;
         private readonly IMongoCollection<TBusRoute> _busRoute;
         private readonly IMongoCollection<TTransDemand> _transDemands;
@@ -41,6 +42,11 @@ namespace api.Infrastructure.Data.Database.TransportDept
             _tAddBustoRoute = mongoDatabase.GetCollection<TAddBustoRoute>
             (
                 userNameStoreDatabaseSettings.Value.TAddBustoRoute
+            );
+
+            _emptySits = mongoDatabase.GetCollection<TEmplySit>
+            (
+                userNameStoreDatabaseSettings.Value.TEmplySit
             );
         }
         public async Task AddBusInvertory(TBusInventory busInvertory)
@@ -95,7 +101,7 @@ namespace api.Infrastructure.Data.Database.TransportDept
 
         public async Task<IEnumerable<TTransDemand>> GetTTransDemand()
         {
-            
+
             return await _transDemands.Find(_=>true).ToListAsync();
         }
 
@@ -103,5 +109,15 @@ namespace api.Infrastructure.Data.Database.TransportDept
         {
             return await _tAddBustoRoute.Find( _=> true).ToListAsync();
         }
+
+
+        public async Task AddEmptySite(TEmplySit emplySit)
+         {
+            await _emptySits.InsertOneAsync(emplySit);
+         }
+        public async Task<IEnumerable<TEmplySit>> GetEmptySits()
+         {
+            return await _emptySits.Find(x => true).ToListAsync();
+         }
     }
 }
