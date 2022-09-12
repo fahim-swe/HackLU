@@ -78,9 +78,18 @@ namespace api.Controllers
 
 
         [HttpPost("add-buses-to-route")]
-        public async Task<IActionResult> AddBustoARoots( TAddBustoRoute addBustoRoute)
+        public async Task<IActionResult> AddBustoARoots( TAddBustoRouteDto addBustoRoute)
         {
-            await _updateBusInventory.AddBustoRoute(addBustoRoute);
+            var data = new TAddBustoRoute 
+            {
+                BusId = addBustoRoute.BusId,
+                RouteNumber = addBustoRoute.RouteNumber,
+                Time = addBustoRoute.Time,
+                license = addBustoRoute.license,
+                capacity = addBustoRoute.capacity,
+                stoppagePoint = addBustoRoute.stoppagePoint
+            };
+            await _updateBusInventory.AddBustoRoute(data);
             return Ok(new Response<string>("Added"));
         }
 
