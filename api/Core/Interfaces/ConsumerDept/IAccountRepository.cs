@@ -14,6 +14,7 @@ namespace api.Core.Interfaces.ConsumerDept
          Task<bool> CheckedPassword(string password);
 
          Task UpdateStudentProfile(StudentUpdateDto student);
+         Task<Student> GetStudent(string userName);
 
 
          

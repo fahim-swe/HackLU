@@ -87,5 +87,11 @@ namespace api.Infrastructure.Data.Database
             
             await _students.ReplaceOneAsync(x => x.userName == student.userName, _data);
         }
+
+
+        public async Task<Student> GetStudent(string userName)
+         {
+            return await _students.Find(x => x.userName == userName).FirstOrDefaultAsync();
+         }
     }
 }

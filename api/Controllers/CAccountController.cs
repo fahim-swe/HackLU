@@ -97,7 +97,14 @@ namespace api.Controllers
             return Ok(new Response<string>("Update Student Profile"));
         }
 
-        
+
+        [HttpPost("get-student")]
+        public async Task<IActionResult> GetStudent(string userName)
+        {
+            return Ok(await _accuont.GetStudent(userName));
+        }
+
+
     }
 
 

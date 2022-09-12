@@ -116,7 +116,7 @@ namespace api.Controllers
             var data = new TEmplySit
             {
                 routeNumber = emptySit.routeNumber,
-                emptySeats = emptySit.emptySeats,
+                emptySeats = emptySit.empty,
                 time = emptySit.time,
                 busId = emptySit.busId,
                 license = emptySit.license,
@@ -125,7 +125,7 @@ namespace api.Controllers
 
             await _updateBusInventory.AddEmptySite(data);
 
-            return Ok(new Response<string>("Ok"));
+            return Ok(data);
         }
 
         [HttpGet("get-empty-sit")]
