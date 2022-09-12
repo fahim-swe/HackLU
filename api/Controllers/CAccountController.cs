@@ -88,5 +88,16 @@ namespace api.Controllers
 
             return Ok(new Response<TUserDto>(_user));
         }
+    
+    
+        [HttpPost("update-student")]
+        public async Task<IActionResult> UpdateStudent(StudentUpdateDto studentUpdate)
+        {
+            await _accuont.UpdateStudentProfile(studentUpdate);
+            return Ok(new Response<string>("Update Student Profile"));
+        }
     }
+
+
+    
 }
