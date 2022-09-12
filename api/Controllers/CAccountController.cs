@@ -96,6 +96,8 @@ namespace api.Controllers
             await _accuont.UpdateStudentProfile(studentUpdate);
             return Ok(new Response<string>("Update Student Profile"));
         }
+
+        
     }
 
 
