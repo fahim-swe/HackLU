@@ -32,9 +32,11 @@ namespace api.Controllers
             }
 
 
-            if(cAppUserDto.role == "student"){
-                var student = _mapper.Map<Student>(cAppUserDto);
-                await _accuont.AddStudent(student); 
+            if(cAppUserDto.role == "staff"){
+               
+
+                 var staff = _mapper.Map<Staff>(cAppUserDto);
+                await _accuont.AddStaff(staff);
             }
             else if(cAppUserDto.role == "teacher")
             {
@@ -42,8 +44,8 @@ namespace api.Controllers
                 await _accuont.AddTeacher(teacher);
             }
             else{
-                var staff = _mapper.Map<Staff>(cAppUserDto);
-                await _accuont.AddStaff(staff);
+                var student = _mapper.Map<Student>(cAppUserDto);
+                await _accuont.AddStudent(student); 
             }
 
 

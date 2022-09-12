@@ -7,6 +7,8 @@ using api.Database;
 using AutoMapper;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using api.Helper;
+
 namespace api.Infrastructure.Data.Database
 {
     public class AccountRepository : IAccountRepository
@@ -74,7 +76,16 @@ namespace api.Infrastructure.Data.Database
                 await _teachers.Find(x => x.password == password).AnyAsync() || 
                 await _staff.Find(x => x.password == password).AnyAsync();
         }
-        
 
+        public async Task UpdateStudentProfile(StudentUpdateDto student)
+        {
+            var _data = await _students.Find( x => x.userName == student.userName).FirstOrDefaultAsync();
+            _data.fullName = student.fullName;
+            _data.batchNumber = student.batchNumber;
+            _data.section = student.section;
+
+            
+            await _students.ReplaceOneAsync(x => x.userName == student.userName, _data);
+        }
     }
 }

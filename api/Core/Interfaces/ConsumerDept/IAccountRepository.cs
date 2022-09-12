@@ -1,3 +1,4 @@
+using api.Core.Dtos;
 using api.Core.Entities.Consumer;
 
 namespace api.Core.Interfaces.ConsumerDept
@@ -11,6 +12,9 @@ namespace api.Core.Interfaces.ConsumerDept
          Task<bool> IsUserNameExits(string userName);
 
          Task<bool> CheckedPassword(string password);
+
+         Task UpdateStudentProfile(StudentUpdateDto student);
+
 
          
     }
