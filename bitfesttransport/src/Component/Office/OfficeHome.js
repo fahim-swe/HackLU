@@ -57,7 +57,7 @@ return(
         <div className={style.item}>
         <NavLink to="/user/bindedbus">
             <img src={binded} alt="Bind"></img>
-            <p>Add Route</p>
+            <p>Linked Routes</p>
             </NavLink>
         </div>
         <div className={style.item}>

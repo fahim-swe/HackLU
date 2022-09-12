@@ -2,6 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import bus from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/images/bus.jpeg';
+
 import * as yup from 'yup';
 import styles from 'D:/Bitfest/HackLU/bitfesttransport/src/asset/css/signup.module.css';
 
@@ -97,9 +99,10 @@ return(
          Suggested Buses
         </button>
         </form>}
-        <div className={styles.showText}>
+        {!hide&&<div className={styles.showText}>
+            <img src={bus} alt="Bus"></img>
         <p>{text}</p>
-        </div>
+        </div>}
     </div>}
     </div>
 )
