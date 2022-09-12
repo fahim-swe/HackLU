@@ -92,5 +92,13 @@ namespace api.Controllers
             var data = await _updateBusInventory.GetTTransDemand();
             return Ok(new Response<IEnumerable<TTransDemand>>(data));
         }
+
+        [HttpGet("get-buses-on-route")]
+        public async Task<IActionResult> GetBusOnRoute()
+        {
+            return Ok(new Response<IEnumerable<TAddBustoRoute>>(await _updateBusInventory.GetTAddBusToRoute()));
+        }
+
+        
     }
 }

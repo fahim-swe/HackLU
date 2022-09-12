@@ -97,5 +97,10 @@ namespace api.Infrastructure.Data.Database.TransportDept
         {
             return await _transDemands.Find(_=>true).ToListAsync();
         }
+
+        public  async Task<IEnumerable<TAddBustoRoute>> GetTAddBusToRoute()
+        {
+            return await _tAddBustoRoute.Find( _=> true).ToListAsync();
+        }
     }
 }

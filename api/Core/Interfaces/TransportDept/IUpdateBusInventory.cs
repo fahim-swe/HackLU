@@ -18,5 +18,8 @@ namespace api.Core.Interfaces.TransportDept
          Task AddBustoRoute(TAddBustoRoute addBustoRoute);
 
          Task<IEnumerable<TTransDemand>> GetTTransDemand();
+
+
+         Task<IEnumerable<TAddBustoRoute>> GetTAddBusToRoute();
     }
 }
