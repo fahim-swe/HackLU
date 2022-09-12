@@ -24,6 +24,7 @@ namespace api.Core.Interfaces.TransportDept
 
 
          Task AddEmptySite(TEmplySit emplySit);
-         Task<IEnumerable<TEmplySit>> GetEmptySits();
+         
+         Task<IEnumerable<TEmplySit>> GetEmptySites();
     }
 }

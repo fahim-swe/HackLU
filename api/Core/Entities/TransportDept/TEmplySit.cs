@@ -5,7 +5,7 @@ namespace api.Core.Entities.TransportDept
 {
     public class TEmplySit
     {
-        [MongoDB.Bson.Serialization.Attributes.BsonId, BsonElement("_id"), BsonRepresentation(BsonType.ObjectId)]     
+        [MongoDB.Bson.Serialization.Attributes.BsonId, BsonElement("id"), BsonRepresentation(BsonType.ObjectId)]     
         public string id {get; set;}
         public string routeNumber {get; set;}
         public string emptySeats {get; set;}

@@ -131,9 +131,7 @@ namespace api.Controllers
         [HttpGet("get-empty-sit")]
         public async Task<IActionResult> GetEmptySit()
         {
-            var data = _updateBusInventory.GetEmptySits();
-
-            return Ok(data);
+           return Ok(await _updateBusInventory.GetEmptySites());
         }
         
     }

@@ -115,9 +115,15 @@ namespace api.Infrastructure.Data.Database.TransportDept
          {
             await _emptySits.InsertOneAsync(emplySit);
          }
-        public async Task<IEnumerable<TEmplySit>> GetEmptySits()
-         {
+
+          public  async Task<IEnumerable<TEmplySit>> GetEmplySits()
+        {
+            return await _emptySits.Find( _=> true).ToListAsync();
+        }
+
+        public async Task<IEnumerable<TEmplySit>> GetEmptySites()
+        {
             return await _emptySits.Find(x => true).ToListAsync();
-         }
+        }
     }
 }
